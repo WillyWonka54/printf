@@ -13,9 +13,9 @@
  * Return: Number of chars printed.
  */
 
-int handle_write_char(char c, char buffer[],
+int handle_write_char(char c, char buffer[];
 
-int flags, int width, int precision, int size)
+int flags, int width, int precision, int size);
 
 { /* char is stored at left and paddind at buffer's right */
 
@@ -34,8 +34,6 @@ UNUSED(size);
 if (flags & F_ZERO)
 
 padd = '0';
-
-
 
 buffer[i++] = c;
 
@@ -88,10 +86,10 @@ return (write(1, &buffer[0], 1));
  *
  * Return: Number of chars printed.
  */
+0
+int write_number(int is_negative, int ind, char buffer[];
 
-int write_number(int is_negative, int ind, char buffer[],
-
-int flags, int width, int precision, int size)
+int flags, int width, int precision, int size);
 
 {
 
@@ -126,9 +124,8 @@ extra_ch = ' ';
 return (write_num(ind, buffer, flags, width, precision,
 
 length, padd, extra_ch));
-
 }
- 
+
  /**
  * write_num - Write a number using a bufffer
  * @ind: Index at which the number starts on the buffer
@@ -143,11 +140,11 @@ length, padd, extra_ch));
  * Return: Number of printed chars.
  */
 
-int write_num(int ind, char buffer[],
+int write_num(int ind, char buffer[];
 
-int flags, int width, int prec,
+int flags, int width, int prec;
 
-int length, char padd, char extra_c)
+int length, char padd, char extra_c);
 
 {
 
@@ -232,11 +229,7 @@ buffer[--ind] = extra_c;
 return (write(1, &buffer[ind], length));
 
 }
-
-
-
 /**
-
  * write_unsgnd - Writes an unsigned number
  * @is_negative: Number indicating if the num is negative
  * @ind: Index at which the number starts in the buffer
@@ -249,11 +242,11 @@ return (write(1, &buffer[ind], length));
  * Return: Number of written chars.
  */
 
-int write_unsgnd(int is_negative, int ind,
+int write_unsgnd(int is_negative, int ind;
 
-char buffer[],
+char buffer[];
 
-int flags, int width, int precision, int size)
+int flags, int width, int precision, int size);
 
 {
 
@@ -355,9 +348,9 @@ return (write(1, &buffer[ind], length));
  * Return: Number of written chars.
  */
 
-int write_pointer(char buffer[], int ind, int length,
+int write_pointer(char buffer[], int ind, int length;
 
-int width, int flags, char padd, char extra_c, int padd_start)
+int width, int flags, char padd, char extra_c, int padd_start);
 
 {
 
